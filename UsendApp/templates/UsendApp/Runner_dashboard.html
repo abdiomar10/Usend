@@ -1,0 +1,65 @@
+{% extends "UsendApp/base.html" %}
+
+{% block title %}Runner Dashboard{% endblock %}
+
+{% block content %}
+<h2 class="text-xl mb-4">Runner Dashboard</h2>
+
+<h3 class="text-lg mt-4 mb-2">Available Tasks</h3>
+<ul>
+    {% for task in tasks_pending %}
+    <li>
+        <strong>{{ task.title }}</strong><br>
+        {{ task.description }}<br>
+        From: {{ task.location_from }} to {{ task.location_to }}<br>
+        Contact: {{ task.phone_number }}<br>
+        <form method="post" action="{% url 'set_price' task.id %}" class="inline-block ml-4">
+            {% csrf_token %}
+            <input type="text" name="proposed_price" placeholder="Set Price" class="border rounded py-1 px-2">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Set Price</button>
+        </form>
+    </li>
+    <hr>
+    {% endfor %}
+</ul>
+
+<h3 class="text-lg mt-4 mb-2">Accepted Tasks</h3>
+<ul>
+    {% for task in tasks_accepted %}
+    <li>
+        <strong>{{ task.title }}</strong><br>
+        {{ task.description }}<br>
+        From: {{ task.location_from }} to {{ task.location_to }}<br>
+        Contact: {{ task.phone_number }}<br>
+        Proposed Price: ${{ task.proposed_price }}<br>
+        <form method="post" action="{% url 'complete_task' task.id %}" class="inline-block ml-4">
+            {% csrf_token %}
+            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded">Complete Task</button>
+        </form>
+    </li>
+    <hr>
+    {% endfor %}
+</ul>
+
+
+
+
+<h3 class="text-lg mt-4 mb-2">Tasks In Progress</h3>
+<ul>
+    {% for task in tasks_in_progress %}
+    <li>
+        <strong>{{ task.title }}</strong><br>
+        {{ task.description }}<br>
+        From: {{ task.location_from }} to {{ task.location_to }}<br>
+        Contact: {{ task.phone_number }}<br>
+        Proposed Price: {{ task.proposed_price }}<br>
+        <form method="post" action="{% url 'complete_task' task.id %}" class="inline-block ml-4">
+            {% csrf_token %}
+            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-4 rounded">Complete Task</button>
+        </form>
+    </li>
+    <hr>
+    {% endfor %}
+</ul>
+
+{% endblock %}

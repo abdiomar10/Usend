@@ -1,0 +1,37 @@
+{% extends "UsendApp/base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="flex justify-center items-center h-screen">
+    <div class="w-full max-w-md">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <h2 class="text-2xl mb-4 text-center">Sign Up</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="id_username" class="block text-gray-700">Username:</label>
+                    {{ form.username }}
+                </div>
+                <div class="mb-4">
+                    <label for="id_email" class="block text-gray-700">Email:</label>
+                    {{ form.email }}
+                </div>
+                <div class="mb-4">
+                    <label for="id_password1" class="block text-gray-700">Password:</label>
+                    {{ form.password1 }}
+                </div>
+                <div class="mb-4">
+                    <label for="id_password2" class="block text-gray-700">Password confirmation:</label>
+                    {{ form.password2 }}
+                </div>
+                <div class="mb-4">
+                    <label for="id_user_type" class="block text-gray-700">User Type:</label>
+                    {{ form.user_type }}
+                </div>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

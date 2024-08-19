@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF Verification Failed</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>CSRF Verification Failed</h1>
+        <p>It looks like there was a problem submitting the form. This can happen for a few reasons:</p>
+        <ul>
+            <li>You are not logged in and tried to submit a form that requires authentication.</li>
+            <li>Your session has expired. Please log in again.</li>
+            <li>You may have cookies disabled. Please enable cookies and try again.</li>
+        </ul>
+        <p><a href="{% url 'landing_page' %}">Return to the home page</a></p>
+    </div>
+</body>
+</html>
