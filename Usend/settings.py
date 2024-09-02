@@ -112,9 +112,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'omar171abdi@gmail.com'
-EMAIL_HOST_PASSWORD = '1080Junior!'
-DEFAULT_FROM_EMAIL = 'omar171abdi@gmail.com'
+EMAIL_HOST_USER = 'usend@gmail.com'
+EMAIL_HOST_PASSWORD = '12340usender!'
+DEFAULT_FROM_EMAIL = 'usend@gmail.com'
 
 CSRF_FAILURE_VIEW = 'UsendApp.views.csrf_failure'
 
